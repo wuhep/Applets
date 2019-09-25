@@ -4,7 +4,8 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
+    motto: 'Hello这只是一个测试的小程序',
+    code: '未获取',//微信登录凭证
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
@@ -49,6 +50,28 @@ Page({
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
+    })
+  },
+  testClick: function(){
+    console.log("调用登录接口获取code")
+    var _this = this;
+    wx.login({
+      success(res) {
+        if (res.code) {
+          // 自定义登录接口
+          // wx.request({
+          //   url: 'https://test.com/onLogin',
+          //   data: {
+          //     code: res.code
+          //   }
+          // })
+          _this.setData({
+            code:res.code
+          })
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
     })
   }
 })

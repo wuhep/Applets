@@ -7,6 +7,10 @@
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view>
+  <view>
+    <button wx:if="true" bindtap="testClick" bindgetuserinfo="testClick"> 点我点我获取code </button>
+    <text class="">{{code}}</text>
+  </view>
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view>
