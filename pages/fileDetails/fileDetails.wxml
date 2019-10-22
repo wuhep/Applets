@@ -1,0 +1,46 @@
+<!--pages/fileDetails.wxml-->
+<view class="file_details {{isIphoneX ? 'iphonex_bottom':''}}">
+  <view wx:if="{{material_ordinary_name}}">
+    <view class="normal_wrap" wx:if="{{!is_deleted}}">
+      <view class="file_content_warp {{isIphoneX ? 'normal_wrap_iphonex' :''}}">
+        <!-- 标题 -->
+        <view class="file_title">{{material_ordinary_name}}</view>
+        <view class="file_subtitle">
+          <view class="file_subtitle_left">
+            <text class="lable_item" wx:for="{{custom_tag}}" wx:for-index="idx" wx:for-item="tagItem" wx:key>{{tagItem}}</text>
+          </view>
+          <view class="file_subtitle_right">
+          <image class="icon" src="/images/icon/icon-download.png"></image>{{count}}</view>
+        </view>
+        <!-- 资料预览 -->
+        <view class="file_preview" wx:if="{{thumbnail_url}}">
+          <view class="file_preview_title">资料预览</view>
+          <image class="preview_img" src="{{thumbnail_url}}" bind:tap="previewImg"></image>
+          <view class="show_more_wrap"><view class="show_more_btn" bind:tap="showFullProfile">查看完整资料<image class="icon_right_green" src="/images/icon_arrowgreen.png"></image></view></view>
+        </view>
+        <!-- 获取方式 -->
+        <view class="file_obtain">
+          <view class="file_obtain_title">获取方式</view>
+          <view class="file_obtain_des">点击“领取资料”，输入邮箱提交后1小时内将收到轻轻发送的资料领取邮件，如下图</view>
+          <image class="example_img" src="/images/example_img.png"></image>
+          <view class="file_obtain_remark">备注：家长有任何问题可以添加微信（17343066243）进行解决</view>
+        </view>
+      </view>
+      <!-- 底部 -->
+      <view class="file_bottom_wrap {{isIphoneX ? 'file_bottom_wrap_iphonex':''}}">
+        <view class="collection_btn" bind:tap="collectionTap">
+        <image class="icon_collection" src="{{is_collected?'/images/icon_collect_highlight.png':'/images/icon_collect.png'}}"></image>
+        {{is_collected?'已收藏':'收藏'}}</view>
+        <button class="item_btn share_btn" open-type="share" bind:tap="toShareTap">分享</button>
+        <button class="item_btn receive_btn" bind:tap="receiveInfo">{{is_downloaded?'重新领取':'领取资料'}}</button>
+      </view>
+    </view>
+    <view class="deleted_wrap" wx:else>
+      <image class="icon_njkc_fail" src="/images/icon_njkc_fail.png"></image>
+      <view class="deleted_txt">该资料已下架</view>
+    </view>
+  </view>
+  <dialog id="dialog" phone="{{phoneNumber}}" openId="{{openId}}" qingqingMaterialId="{{qingqing_material_id}}" bind:cancel="handleCancelDialog" bind:confirm="handleConfirmlDialog"></dialog>
+  <login bind:success='login' wx:if='{{showLogin}}'></login>
+  <toast id="toast"></toast>
+</view>

@@ -1,0 +1,23 @@
+<view class="media" bindtap="handleItemClick">
+    <view class="lt">
+        <view class="title">{{ mediaInfo.material_ordinary_name }}</view>
+    </view>
+    <view class="rt">
+        <view class="img-gallery">
+            <block wx:if="{{ mediaInfo.image_url }}" wx:for="{{ mediaInfo.image_url }}" wx:key="{{ index }}">
+                <image class="image" mode="scaleToFill" src="{{ item }}"></image>
+            </block>
+        </view>
+        <view class="etc">
+            <view class="label-group" wx:if="{{ mediaInfo.custom_tag }}">
+                <block wx:for="{{ mediaInfo.custom_tag }}" wx:key="{{ index }}">
+                    <view class="label-item">{{ item }}</view>
+                </block>
+            </view>
+            <view class="info">
+                <image class="icon" mode="scaleToFill" src="{{ displayTypeReflectIcon[mediaInfo.display_type] }}"></image>
+                <view class="desc">{{ mediaInfo.count }}</view>
+            </view>
+        </view>
+    </view>
+</view>

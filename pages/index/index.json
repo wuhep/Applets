@@ -1,3 +1,10 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "login": "/components/login/login",
+    "media-one": "/components/media/media-one/media-one",
+    "media-two": "/components/media/media-two/media-two",
+    "media-three": "/components/media/media-three/media-three",
+    "toast": "/components/toast/toast"
+  },
+  "navigationBarTitleText": "轻轻家教·精选资料库"
 }

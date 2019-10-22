@@ -1,0 +1,18 @@
+<view class="ui_dialog" wx:if="{{showDialog}}">
+  <view class="dialog_mask"></view>
+  <view class="dialog_wrap">
+    <view class="dialog_main">
+      <view class="dialog_title">请填写常用邮箱查收资料</view>
+      <view class="dialog_enter">
+        <input class="email_num" value="{{email}}" focus="true" cursor-spacing="{{170}}" name="email" placeholder="请输入邮箱，如xxx@xxx.com" placeholder-style="color:#C7C7CC;" bindinput="emailInput" bindfocus="inputFocus" bindblur="inputBlur">
+        </input>
+      </view>
+      <view class="hint_msg">{{hintMsg}}</view>
+      <view class="dialog_subtitle">友情提示：提交邮箱地址后, 将在<text class="text_sign">1小时内</text>收到资料下载邮件</view>
+    </view>
+    <view class="dialog_footer">
+      <button class="dialog_btn is_cancel" bindtap="_cancel">取消</button>
+      <button class="dialog_btn is_ok" bindtap="_confirm">提交</button>
+    </view>
+  </view>
+</view>

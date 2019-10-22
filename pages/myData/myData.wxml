@@ -1,0 +1,46 @@
+<view class="swiper-tab">
+    <view 
+        class="swiper-tab-item {{currentTab == collect.key ? 'active' : ''}}" 
+        data-current="{{collect.key}}" 
+        bindtap="clickTab">
+        {{collect.value}}
+    </view>
+    <view 
+        class="swiper-tab-item {{currentTab == download.key ? 'active' : ''}}" 
+        data-current="{{download.key}}" 
+        bindtap="clickTab">
+        {{download.value}}
+    </view>
+</view>
+<swiper class="swiper" current="{{currentTab}}" duration="300"  bindchange="swiperTab">
+    <swiper-item class="swiper-item">
+        <mydatacont
+            wx:if="{{ collect.info.length > 0 }}"
+            message="{{ collect }}"
+            bind:emitMediaClick="handleEmitMediaClick"
+            bind:scrolltolower="handleScrolltolower">
+        </mydatacont>
+        <view class="empty" wx:else>
+            <view class="content">
+                <image class="mascot" src="{{ emptyObj.collect.imgUrl }}" mode="scaleToFill" lazy-load="false" />
+                <view class="desc">{{ emptyObj.collect.desc }}</view>
+            </view>
+        </view>
+    </swiper-item>
+    <swiper-item  class="swiper-item">
+        <mydatacont
+            wx:if="{{ download.info.length > 0 }}"
+            message="{{ download }}"
+            bind:emitMediaClick="handleEmitMediaClick"
+            bind:scrolltolower="handleScrolltolower">
+        </mydatacont>
+        <view class="empty" wx:else>
+            <view class="content">
+                <image class="mascot" src="{{ emptyObj.download.imgUrl }}" mode="scaleToFill" lazy-load="false" />
+                <view class="desc">{{ emptyObj.download.desc }}</view>
+            </view>
+        </view>
+    </swiper-item>
+</swiper>
+<toast id="toast"></toast>
+  

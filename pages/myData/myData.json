@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "mydatacont":"/components/mydatacont/mydatacont",
+    "toast": "/components/toast/toast"
+  },
+  "navigationBarTitleText": "我的资料"
+}

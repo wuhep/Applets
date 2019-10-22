@@ -1,0 +1,28 @@
+<scroll-view scroll-y="true" bindscrolltolower="watchCollectedMaterialScrolltolower" lower-threshold="90">
+    <block 
+        wx:if="{{ message && message.info }}" 
+        wx:for="{{ message.info }}" 
+        wx:for-index="index" 
+        wx:for-item="item" 
+        wx:key="{{ qingqing_material_id }}">
+        <!-- 左文右图 -->
+        <media-one 
+            wx:if="{{ item.tile_mode === 'left_right_picture_content_type' }}"
+            mediaInfo="{{ item }}"
+            bind:mediaClick="handleMediaClick">
+        </media-one>
+        <!-- 上文下一图 / 无图 -->
+        <media-two 
+            wx:if="{{ item.tile_mode === 'next_one_picture_content_type' || !item.image_url }}"
+            mediaInfo="{{ item }}"
+            bind:mediaClick="handleMediaClick">
+        </media-two>
+        <!-- 上文下三图 -->
+        <media-three 
+            wx:if="{{ item.tile_mode === 'next_three_picture_content_type' }}"
+            mediaInfo="{{ item }}"
+            bind:mediaClick="handleMediaClick">
+        </media-three>
+    </block>
+    <view class="hack-blank"></view> <!-- hack -->
+</scroll-view>

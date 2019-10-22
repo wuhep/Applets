@@ -1,0 +1,14 @@
+<!--components/login.wxml-->
+<view class="mask" catchtap="close" catchtouchmove="disable">
+  <view class="content" catchtap="disable">
+    <view class="title">请选择孩子的学部</view>
+    <view class="des">我们将根据您的选择精准推送教育资料</view>
+    <view class="select">
+      <image class="select1" src="/images/{{type==='to_junior_high_study_phase'?'btn_primeryschool_selected@2x':'btn_primeryschool_normal@2x'}}.png" bindtap="select" data-type='to_junior_high_study_phase'></image>
+      <image class="select2" src="/images/{{type==='to_senior_high_study_phase'?'btn_middleschool_selected@2x':'btn_middleschool_normal@2x'}}.png" bindtap="select" data-type='to_senior_high_study_phase'></image>
+    </view>
+    <view class="prompt" wx:if='{{!type&&showPrompt}}'>请先选择上方学段</view>
+    <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="phone" wx:if='{{isNewUser&&type}}'>确定</button>
+    <button bindtap="getPhoneNumber" class="phone" wx:else>确定</button>
+  </view>
+</view>

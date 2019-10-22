@@ -1,0 +1,41 @@
+<!--pages/search/search.wxml-->
+<view class="searcher">
+  <view class="search-box">
+    <input type="text" focus="true" placeholder="输入您想要的资料" value="{{keyword}}"   placeholder-class="placeholderStyle" confirm-type="search" bindfocus="focusHandler" bindconfirm="confirmHandler" bindinput="handleInput" />
+    <image width="30rpx" height="30rpx" class="search" src="../../images/icon_search@2x.png"></image>
+    <image wx:if="{{ keyword }}" bindtap="emptyInput" class="empty" src="../../images/icon_close@2x.png"></image>
+  </view>
+
+  <block 
+      wx:if="{{ info && info.length > 0 }}" 
+      wx:for="{{ info }}" 
+      wx:for-index="index" 
+      wx:for-item="item" 
+      wx:key="{{ qingqing_material_id }}">
+      <!-- 左文右图 -->
+      <media-one 
+          wx:if="{{ item.tile_mode === 'left_right_picture_content_type' }}"
+          mediaInfo="{{ item }}"
+          bind:mediaClick="handleMediaClick">
+      </media-one>
+      <!-- 上文下一图 / 无图 -->
+      <media-two 
+          wx:if="{{ item.tile_mode === 'next_one_picture_content_type' || !item.image_url }}"
+          mediaInfo="{{ item }}"
+          bind:mediaClick="handleMediaClick">
+      </media-two>
+      <!-- 上文下三图 -->
+      <media-three 
+          wx:if="{{ item.tile_mode === 'next_three_picture_content_type' }}"
+          mediaInfo="{{ item }}"
+          bind:mediaClick="handleMediaClick">
+      </media-three>
+  </block>
+  <block wx:if="{{isContentEmpty}}">
+    <view class="empty-wrap">
+      <image class="empty-status" src="../../images/icon_empty@2x.png"></image>
+      <view class="empty-text">暂无您需要的资料</view>
+      <view class="empty-text">小轻会尽快收集哦</view>
+    </view>
+  </block>
+</view>

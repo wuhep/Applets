@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "media-one":"/components/media/media-one/media-one",
+    "media-two":"/components/media/media-two/media-two",
+    "media-three":"/components/media/media-three/media-three"
+  }
+}

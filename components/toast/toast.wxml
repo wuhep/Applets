@@ -1,0 +1,17 @@
+
+  <view class="toast-box {{isShow? 'show':''}}" animation="{{animationData}}">
+      <view class="toast-content"  >
+          <view class="toast-img">
+              <block wx:if="{{type==='success'}}">
+                  <image class="toast-icon"  src="/images/icon_success.png" />
+              </block>
+              <block wx:if="{{type==='fail'}}">
+                  <image class="toast-icon"  src="/images/icon_fail.png" />
+              </block>
+              <block wx:if="{{type==='wrong'}}">
+                  <image class="toast-icon"  src="/images/icon_wrong.png" />
+              </block>
+          </view>
+          <view class="toast-title">{{title}}</view>
+      </view>
+  </view>

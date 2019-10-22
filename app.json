@@ -1,7 +1,11 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/myData/myData",
+    "pages/search/search",
+    "pages/webview/webview",
+    "pages/fileDetails/fileDetails",
+    "pages/webview/transfer"
   ],
   "window": {
     "backgroundTextStyle": "light",

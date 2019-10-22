@@ -1,0 +1,5 @@
+/* components/mydatacont/mydatacont.wxss */
+.hack-blank{
+  height: 90rpx;
+  width: 100%;
+}

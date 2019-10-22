@@ -1,0 +1,183 @@
+/* pages/fileDetails/fileDetails.wxss */
+.iphonex_bottom{
+  bottom: 68rpx !important;
+}
+.iphonex_bottom::after{
+  content: ' ';
+  position: fixed;
+  bottom: 0!important;
+  height: 68rpx!important;
+  width: 100%;
+  background: #ffffff;
+}
+.file_details .normal_wrap .file_content_warp {
+  padding: 40rpx 26rpx 188rpx;
+}
+.file_details .normal_wrap .normal_wrap_iphonex{
+   padding: 40rpx 26rpx 256rpx;
+}
+.file_details .normal_wrap .file_content_warp .file_title {
+  font-size: 34rpx;
+  color: #252c34;
+  font-weight: bolder;
+}
+
+.file_details .normal_wrap .file_content_warp .file_subtitle {
+  display: flex;
+  justify-content: space-between;
+  font-size: 22rpx;
+  margin-top: 16rpx;
+}
+
+.file_details .normal_wrap .file_content_warp .file_subtitle .file_subtitle_left {
+  flex: 1;
+}
+
+.file_details .normal_wrap .file_content_warp .file_subtitle .file_subtitle_left .lable_item {
+  color: #4cac89;
+  padding: 0 10rpx;
+  border: 1rpx solid rgba(76, 172, 137, 0.8);
+  border-radius: 4rpx;
+  margin-right: 10rpx;
+}
+
+.file_details .normal_wrap .file_content_warp .file_subtitle .file_subtitle_right {
+  color: #91959a;
+  display:flex;
+  align-items:center;
+}
+.file_details .normal_wrap .file_content_warp .file_subtitle .file_subtitle_right .icon{
+  width:20rpx;
+  height:20rpx;
+  margin-right: 10rpx;
+}
+.file_details .normal_wrap .file_content_warp .file_preview,
+.file_details .normal_wrap .file_content_warp .file_obtain {
+  margin-top: 60rpx;
+}
+
+.file_details .normal_wrap .file_content_warp .file_preview .file_preview_title,
+.file_details .normal_wrap .file_content_warp .file_obtain .file_obtain_title {
+  font-size: 34rpx;
+  color: #252c34;
+  margin-bottom: 32rpx;
+  font-weight: bolder;
+}
+
+.file_details .normal_wrap .file_content_warp .file_preview .preview_img {
+  width: 698rpx;
+  height: 414rpx;
+}
+
+.file_details .normal_wrap .file_content_warp .file_preview .show_more_wrap {
+  margin-top: 20rpx;
+  font-size: 26rpx;
+  color: #0ac373;
+}
+.file_details .normal_wrap .file_content_warp .file_preview .show_more_wrap .show_more_btn{
+  width:186rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin:0 auto;
+}
+.file_details .normal_wrap .file_content_warp .file_preview .show_more_wrap .show_more_btn .icon_right_green {
+  width: 24rpx;
+  height: 24rpx;
+}
+
+.file_details .normal_wrap .file_content_warp .file_obtain .file_obtain_des {
+  margin-top: 20rpx;
+  font-size: 30rpx;
+  color: #252c34;
+  margin-bottom: 16rpx;
+}
+
+.file_details .normal_wrap .file_content_warp .file_obtain .example_img {
+  width: 698rpx;
+  height: 434rpx;
+}
+
+.file_details .normal_wrap .file_content_warp .file_obtain .file_obtain_remark {
+  font-size: 26rpx;
+  color: #252c34;
+  margin-top: 30rpx;
+  word-break:break-all;
+}
+
+.file_details .normal_wrap .file_bottom_wrap {
+  width: 100%;
+  height: 128rpx;
+  background: #fff;
+  border-top: 1rpx solid #f8f8f8;
+  display: flex;
+  align-items: center;
+  padding: 0 26rpx 0 10rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+.file_details .normal_wrap .file_bottom_wrap_iphonex{
+  position: fixed;
+  bottom: 68rpx;
+  left: 0;
+}
+.file_details .normal_wrap .file_bottom_wrap .collection_btn {
+  color: #666;
+  width: 174rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  margin-right: 10rpx;
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.file_details .normal_wrap .file_bottom_wrap .icon_collection {
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 10rpx;
+}
+
+.file_details .normal_wrap .file_bottom_wrap .item_btn {
+  width: 250rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  border-radius: 8rpx;
+  margin: 0;
+}
+
+.file_details .normal_wrap .file_bottom_wrap .item_btn::after {
+  border: none;
+}
+
+.file_details .normal_wrap .file_bottom_wrap .share_btn {
+  border: 2rpx solid rgba(10, 195, 115, 1);
+  color: #0ac373;
+  text-align: center;
+  background: #fff;
+  margin-right: 20rpx;
+  font-size: 30rpx;
+}
+
+.file_details .normal_wrap .file_bottom_wrap .receive_btn {
+  background: linear-gradient(124deg, rgba(26, 217, 116, 1) 0%, rgba(23, 214, 146, 1) 100%);
+  color: #fff;
+}
+
+.file_details .deleted_wrap {
+  text-align: center;
+  padding-top: 212rpx;
+}
+
+.file_details .deleted_wrap .icon_njkc_fail {
+  width: 320rpx;
+  height: 320rpx;
+}
+
+.file_details .deleted_wrap .deleted_txt {
+  font-size: 30rpx;
+  color: #93a0b5;
+}

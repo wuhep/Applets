@@ -1,22 +1,46 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+<view class="main">
+  <!-- 顶部选择 -->
+  <view class="header">
+    <view class="local" bindtap="switchLocal">
+      <image src="../../images/icon_location.png"></image>上海</view>
+    <view class="type" bindtap="switType">{{typeMap[type]}}
+      <image src="../../images/arrow_down.png"></image>
+    </view>
+    <navigator class="search" url='/pages/search/search'>
+      <image src="../../images/icon_search@2x.png"></image>
+      <text>输入您想要的资料</text>
+    </navigator>
   </view>
-  <view>
-    <button wx:if="true" bindtap="getCode"> 点我点我获取code </button>
-    <text class="">{{code}}</text>
+
+  <!-- 切换栏目 -->
+  <scroll-view class="tab-list" scroll-x='true' scroll-left='{{scrollLeft}}'>
+    <view class="tab-item {{curTagIdx === index ? 'crr-tab':''}}" wx:for='{{tabList}}' data-index='{{index}}' bindtap="switchTab" wx:key='{{index}}'>
+      {{item.theme_name}}
+    </view>
+  </scroll-view>
+
+
+  <!-- 具体内容列表 -->
+  <view class="info">
+    <view wx:if="{{ info }}" wx:for="{{ info }}" wx:for-index="index" wx:for-item="item" wx:key="{{ qingqing_material_id }}" class='info-item'>
+      <!-- 左文右图 -->
+      <media-one wx:if="{{ item.tile_mode === 'left_right_picture_content_type' }}" mediaInfo="{{ item }}" bind:mediaClick="handleMediaClick" data-index='{{index}}'>
+      </media-one>
+      <!-- 上文下一图 / 无图 -->
+      <media-two wx:if="{{ item.tile_mode === 'next_one_picture_content_type' || !item.image_url }}" mediaInfo="{{ item }}" bind:mediaClick="handleMediaClick" data-index='{{index}}'>
+      </media-two>
+      <!-- 上文下三图 -->
+      <media-three wx:if="{{ item.tile_mode === 'next_three_picture_content_type' }}" mediaInfo="{{ item }}" bind:mediaClick="handleMediaClick" data-index='{{index}}'>
+      </media-three>
+    </view>
   </view>
-  <view>
-    <button wx:if="true" bindtap="getOpenId"> 点我点我获取openId </button>
-    <text class="">{{openId}}</text>
-  </view>
-  <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号</button>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+
+  <!-- 卡片切换学段 -->
+  <login bind:success='modify' wx:if='{{showLogin}}' isNewUser='{{isNewUser}}' defaultType='{{type}}' bind:close='closeLogin'>
+  </login>
+  <toast id="toast"></toast>
+  <navigator hover-class="none" bindtap="goMyData" class="my-data" url="/pages/myData/myData" hidden="{{!hasCollectOrDownload}}">
+    <image src="/images/icon_document.png" ></image>
+  </navigator>
 </view>
