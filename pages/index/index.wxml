@@ -8,9 +8,14 @@
     </block>
   </view>
   <view>
-    <button wx:if="true" bindtap="testClick" bindgetuserinfo="testClick"> 点我点我获取code </button>
+    <button wx:if="true" bindtap="getCode"> 点我点我获取code </button>
     <text class="">{{code}}</text>
   </view>
+  <view>
+    <button wx:if="true" bindtap="getOpenId"> 点我点我获取openId </button>
+    <text class="">{{openId}}</text>
+  </view>
+  <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号</button>
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view>
