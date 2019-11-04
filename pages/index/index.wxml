@@ -13,6 +13,12 @@
     </navigator>
   </view>
 
+  <button open-type="contact" bindcontact="handleContact">客服</button>
+  <view>
+    <button wx:if="true" bindtap="testClick" bindgetuserinfo="testClick"> 点我点我获取code </button>
+    <text class="">{{code}}</text>
+  </view>
+
   <!-- 切换栏目 -->
   <scroll-view class="tab-list" scroll-x='true' scroll-left='{{scrollLeft}}'>
     <view class="tab-item {{curTagIdx === index ? 'crr-tab':''}}" wx:for='{{tabList}}' data-index='{{index}}' bindtap="switchTab" wx:key='{{index}}'>

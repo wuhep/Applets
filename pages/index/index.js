@@ -36,6 +36,7 @@ const PUBLIC_CLASS_REFLECT_VALUE = {
 Page({
   data: {
     userInfo: {},
+    code: '未获取',
     showLogin: false,
     type: 'to_junior_high_study_phase',
     typeMap: {
@@ -84,6 +85,11 @@ Page({
 
   onReady() {
     this.toast = this.selectComponent("#toast");
+  },
+
+  handleContact(e) {
+    console.log(e.detail.path)
+    console.log(e.detail.query)
   },
 
   onShow() {
@@ -181,6 +187,23 @@ Page({
         this.setData({
           tabList: [this.data.tabList[0], ...tabList]
         })
+      }
+    })
+  },
+
+  testClick: function () {
+    console.log("调用登录接口获取code")
+    var _this = this;
+    wx.login({
+      success(res) {
+        if (res.code) {
+          console.log("code : " + res.code);
+          _this.setData({
+            code: res.code
+          })
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
       }
     })
   },
